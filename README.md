@@ -33,6 +33,25 @@ instaBot/
   ```bash
   pip install instagrapi
 
+---
+
+
+## **How to Use 🚀**
+
+- Clone the Repository:
+
+  ```bash
+  git clone https://github.com/sudhucodes/instaBot.git
+  cd instaBot
+
+- Prepare the User Data:
+- Configure Instagram Credentials:
+- Run the Bot:
+
+  ```bash
+  python instaBot.py
+
+
 ## **Contact 📧**
 
 If you have any questions or need further help, feel free to reach out:
