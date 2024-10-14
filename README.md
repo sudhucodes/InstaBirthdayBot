@@ -52,6 +52,9 @@ instaBot/
   python instaBot.py
 
 
+---
+
+
 ## **Contact 📧**
 
 If you have any questions or need further help, feel free to reach out:

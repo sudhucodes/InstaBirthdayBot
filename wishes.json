@@ -1,0 +1,41 @@
+{
+    "birthday_messages": [
+        "🎉 Happy Birthday, {name}! 🎉\n\nAaj ka din sirf aapke liye hai! I hope your day is filled with joy, fun, and laughter. \nHar pal ka celebration karein, apni achievements ko yaad karein, aur aage ke sabhi acchi cheezon ki taraf dekhein. \nIs saal aapko naye adventures, khoobsurat yaadein, aur anek aashirwad mile! 🎈",
+
+        "🎂 Happy Birthday, {name}! 🎂\n\nAapka din pyaar, khushi, aur plenty of cake se bhara ho! \nSurround yourself with friends and family who cherish you, and make memories that last a lifetime. \nHere’s to you and all the wonderful things this year has in store! 🎊",
+
+        "🎈 Happy Birthday to you, {name}! 🎈\n\nCelebrate your day with khushi aur hasta hasati! \nMay you be surrounded by love and happiness, and may your heart be filled with the warmth of those who care for you. \nCheers to you on your special day! 🥳",
+
+        "🌟 Wishing you an amazing birthday, {name}! 🌟\n\nMay all your dreams come true this year! \nAs you embark on another year of your life, naye shauk, naye dost milenge, aur aap aur bhi grow karte rahenge. \nEnjoy this beautiful journey! ✨",
+
+        "🎉 It's your special day, {name}! 🎉\n\nKhushi ko apnayein aur yaadgar lamhe banayein! \nTake a moment to reflect on your journey so far, and look forward to all the wonderful opportunities ahead. \nYou deserve all the happiness in the world! 🎂",
+
+        "🎊 Happy Birthday, {name}! 🎊\n\nAapka saal khushiyon se bhara ho! \nMay this birthday bring you more adventures and joy than ever before. \nCelebrate to the fullest and make unforgettable memories! 🎉",
+
+        "🌈 Wishing you a fabulous birthday, {name}! 🌈\n\nMay your day be as colorful and bright as your spirit! \nSurround yourself with love, laughter, and all the things that make you happy. \nHere’s to another year of greatness! 🌟",
+
+        "🎁 Happy Birthday, {name}! 🎁\n\nAaj ka din sirf aapka hai! \nEnjoy all the little moments and celebrate the wonderful person you are. \nMay this year bring you closer to your dreams and aspirations! 🎈",
+
+        "🎂 Cheers to you, {name}, on your birthday! 🎂\n\nAaj aapki khushiyon ka din hai! \nEmbrace the love and warmth around you, and cherish each moment of this special day. \nYou are truly one of a kind! 🥳",
+
+        "💫 Happy Birthday, {name}! 💫\n\nMay this day be filled with sweet surprises and cherished moments! \nAs you blow out the candles, may all your wishes come true. \nKeep shining bright! 🌟"
+    ],
+
+    "countdown_messages": [
+        "🌟 Hi {name}! 🎂\n\nSirf {days_left} din hain jab hum aapka special din celebrate karenge on {date}! \nExcitement ka waqt aa gaya hai! Is waqt ko plan karne ka samay hai. \nI can't wait to celebrate with you! 🎉",
+
+        "🎊 Hey {name}! 🎊\n\nAapka birthday sirf {days_left} din door hai! \nCan't wait to see you shine on your special day on {date}! \nGet ready for a celebration full of love and laughter! 🎉",
+
+        "🎂 Countdown to your birthday, {name}! 🎂\n\nSirf {days_left} din baaki hain celebrations shuru hone ke liye on {date}! \nLet’s make this birthday unforgettable. \nPrepare for fun times and cherished memories ahead! 🌟",
+
+        "🎉 {name}, aapka birthday almost yahaan hai! 🎉\n\nOnly {days_left} days until we celebrate you on {date}! \nMark the date and get ready for a day full of joy, surprises, and lots of love! \nI'm so excited for you! 🎈",
+
+        "⏰ Hi {name}! 🎉\n\nSirf {days_left} din bache hain until your big celebration on {date}! \nStart counting down the days! \nIt's going to be epic! 🎊",
+
+        "🎈 Hey {name}! 🎈\n\nAapka birthday celebration sirf {days_left} din door hai on {date}! \nLet the excitement build as we approach your special day! \nCan't wait to party with you! 🎉",
+
+        "🎉 Countdown Alert, {name}! 🎉\n\nSirf {days_left} din baaki hain until we celebrate on {date}! \nAre you ready for an amazing birthday? Plan your celebration and get ready for a blast! 🌟",
+
+        "🎂 Almost there, {name}! 🎂\n\nOnly {days_left} days left until your special day on {date}! \nPrepare for a day filled with joy, laughter, and lots of cake! \nCan't wait to celebrate together! 🎊"
+    ]
+}
