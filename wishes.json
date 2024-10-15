@@ -22,20 +22,34 @@
     ],
 
     "countdown_messages": [
-        "🌟 Hi {name}! 🎂\n\nSirf {days_left} din hain jab hum aapka special din celebrate karenge on {date}! \nExcitement ka waqt aa gaya hai! Is waqt ko plan karne ka samay hai. \nI can't wait to celebrate with you! 🎉",
-
-        "🎊 Hey {name}! 🎊\n\nAapka birthday sirf {days_left} din door hai! \nCan't wait to see you shine on your special day on {date}! \nGet ready for a celebration full of love and laughter! 🎉",
+        "🎉 Exciting news, {name}! 🎉\n\nYour birthday is just {days_left} days away on {date}! \nCan you feel the excitement? Get ready for a fabulous celebration! 🎊",
 
         "🎂 Countdown to your birthday, {name}! 🎂\n\nSirf {days_left} din baaki hain celebrations shuru hone ke liye on {date}! \nLet’s make this birthday unforgettable. \nPrepare for fun times and cherished memories ahead! 🌟",
+
+        "🎈 Let's celebrate you, {name}! 🎈\n\nOnly {days_left} days to go! \nPrepare yourself for a birthday party filled with laughter and joy on {date}! 🎉",
+
+        "🌈 Hey {name}! 🎉\n\nOnly {days_left} days left until we celebrate your birthday on {date}! \nLet the countdown begin for an unforgettable celebration! 🎂",
+
+        "🎉 Countdown Alert, {name}! 🎉\n\nSirf {days_left} din baaki hain until we celebrate on {date}! \nAre you ready for an amazing birthday? Plan your celebration and get ready for a blast! 🌟",
+
+        "🎉 Time is ticking, {name}! 🎉\n\nJust {days_left} days until we celebrate you on {date}! \nPrepare for a day filled with joy and happiness! 🎈",
+
+        "🎈 Hey {name}! 🎈\n\nAapka birthday celebration sirf {days_left} din door hai on {date}! \nLet the excitement build as we approach your special day! \nCan't wait to party with you! 🎉",
+
+        "🎂 Almost there, {name}! 🎂\n\nOnly {days_left} days left until your special day on {date}! \nPrepare for a day filled with joy, laughter, and lots of cake! \nCan't wait to celebrate together! 🎊",
 
         "🎉 {name}, aapka birthday almost yahaan hai! 🎉\n\nOnly {days_left} days until we celebrate you on {date}! \nMark the date and get ready for a day full of joy, surprises, and lots of love! \nI'm so excited for you! 🎈",
 
         "⏰ Hi {name}! 🎉\n\nSirf {days_left} din bache hain until your big celebration on {date}! \nStart counting down the days! \nIt's going to be epic! 🎊",
 
-        "🎈 Hey {name}! 🎈\n\nAapka birthday celebration sirf {days_left} din door hai on {date}! \nLet the excitement build as we approach your special day! \nCan't wait to party with you! 🎉",
+        "🎊 The countdown is on, {name}! 🎊\n\nJust {days_left} days remaining until your special day on {date}! \nLet's make it a day to remember! 🎉",
 
-        "🎉 Countdown Alert, {name}! 🎉\n\nSirf {days_left} din baaki hain until we celebrate on {date}! \nAre you ready for an amazing birthday? Plan your celebration and get ready for a blast! 🌟",
+        "🌟 Hi {name}! 🎂\n\nSirf {days_left} din hain jab hum aapka special din celebrate karenge on {date}! \nExcitement ka waqt aa gaya hai! Is waqt ko plan karne ka samay hai. \nI can't wait to celebrate with you! 🎉",
 
-        "🎂 Almost there, {name}! 🎂\n\nOnly {days_left} days left until your special day on {date}! \nPrepare for a day filled with joy, laughter, and lots of cake! \nCan't wait to celebrate together! 🎊"
+        "🎂 Hi {name}! 🎂\n\nOnly {days_left} days left until your birthday on {date}! \nI hope you're ready for a fantastic day filled with love and fun! 🎈",
+
+        "🎉 Get excited, {name}! 🎉\n\nYour birthday is just {days_left} days away on {date}! \nReady for some cake, fun, and celebration? 🎊",
+
+        "🎉 Almost there, {name}! 🎉\n\nOnly {days_left} days left until we celebrate you on {date}! \nMark the date and get ready for a day full of joy, surprises, and lots of love! 🎈"
     ]
 }
