@@ -1,4 +1,3 @@
-```markdown
 # **Instagram Birthday Bot 🎉**
 
 A Python-based Instagram bot that logs into an Instagram account and sends personalized birthday wishes to users listed in a JSON file. This bot calculates the number of days remaining until the user's birthday and sends timely wishes via Instagram Direct Message (DM). It also manages sessions and avoids message duplication.
