@@ -42,7 +42,7 @@ except Exception as e:
 for path in [used_birthday_path, used_countdown_path]:
     if not os.path.exists(path):
         with open(path, "w") as f:
-            json.dump([], f)
+            json.dump({}, f)  # Use empty dictionary instead of list
 
 # Load wishes and user data
 with open(wishes_path, "r", encoding='utf-8') as file:
@@ -60,20 +60,31 @@ with open(used_countdown_path, "r") as file:
 
 now = datetime.now()
 
-# Helper function to get unique messages
-def get_unique_message(used_list, message_list, key):
-    if len(used_list) >= len(message_list):
-        used_list.clear()  # Reset when all messages are used
+# Helper function to get a unique message for each user
+def get_unique_message(used_dict, message_list, user, key):
+    # Initialize the user-specific message list if not present
+    if user not in used_dict:
+        used_dict[user] = []
 
+    # Reset the user's list if all messages have been used
+    if len(used_dict[user]) >= len(message_list):
+        used_dict[user] = []
+
+    # Find a unique message that hasn't been used for the user
     while True:
         index = random.randint(0, len(message_list) - 1)
-        if index not in used_list:
-            used_list.append(index)
+        if index not in used_dict[user]:
+            used_dict[user].append(index)  # Track the used message index
+
+            # Save the updated dictionary back to the JSON file
             with open(key, "w") as file:
-                json.dump(used_list, file)
+                json.dump(used_dict, file)
+
             return message_list[index]
 
+
 for user in users_data:
+    username = user["username"]
     birthday = datetime.strptime(user["birthday"], "%Y-%m-%d %H:%M")
     next_birthday = birthday.replace(year=now.year)
 
@@ -82,16 +93,19 @@ for user in users_data:
 
     days_left = (next_birthday - now).days
 
+    # Choose the appropriate message based on days left until the birthday
     if days_left == 0:
         message = get_unique_message(
             used_birthday_messages, 
             wishes_data["birthday_messages"], 
+            username, 
             used_birthday_path
         ).format(name=user["name"])
     else:
         message = get_unique_message(
             used_countdown_messages, 
             wishes_data["countdown_messages"], 
+            username, 
             used_countdown_path
         ).format(
             name=user["name"], 
@@ -101,15 +115,16 @@ for user in users_data:
 
     message = message.encode('utf-8').decode('utf-8')
 
+    # Send the message to the user via Instagram Direct Message
     try:
-        user_id = cl.user_id_from_username(user["username"])
+        user_id = cl.user_id_from_username(username)
         cl.direct_send(message, [user_id])
-        print(f"Message sent to {user['username']}!")
+        print(f"Message sent to {username}!")
 
         delay = random.randint(30, 60)
         print(f"Waiting {delay} seconds before sending the next message...")
         time.sleep(delay)
     except Exception as e:
-        print(f"Failed to send message to {user['username']}: {e}")
+        print(f"Failed to send message to {username}: {e}")
 
 print("All messages processed successfully!")
