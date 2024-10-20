@@ -3,14 +3,18 @@
         "username": "ig__sudhanshu__",
         "birthday": "2006-09-20 18:20",
         "name": "Sudhanshu",
-        "birthday_message": "random",
-        "countdown_message": "random"
+        "message_type": "daily"
     },
     {
         "username": "shrishti_nids",
         "birthday": "2009-01-18 07:17",
         "name": "Shrishti Nids",
-        "birthday_message": "random",
-        "countdown_message": "random"
+        "message_type": "daily"
+    },
+    {
+        "username": "__chiku__029",
+        "birthday": "2007-10-29 22:00",
+        "name": "Chandni",
+        "message_type": "birthday"
     }
 ]

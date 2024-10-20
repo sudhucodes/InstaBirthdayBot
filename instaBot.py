@@ -23,13 +23,14 @@ users_data_path = "/home/sudhucodes/instaBot/users_data.json"
 used_birthday_path = "/home/sudhucodes/instaBot/used_birthday_messages.json"
 used_countdown_path = "/home/sudhucodes/instaBot/used_countdown_messages.json"
 
-# Attempt to load session
+# Try to load the session or login fresh
 try:
     cl.load_settings(session_path)
     cl.login(username, password)
     print("Session loaded and login successful!")
 except Exception as e:
     print(f"Session load failed: {e}. Attempting fresh login...")
+    time.sleep(random.randint(60, 180))  # Random wait to mimic human behavior
     try:
         cl.login(username, password)
         cl.dump_settings(session_path)
@@ -83,8 +84,8 @@ def get_unique_message(used_dict, message_list, user, key):
             return message_list[index]
 
 
+# Calculate days until next birthday and sort users
 for user in users_data:
-    username = user["username"]
     birthday = datetime.strptime(user["birthday"], "%Y-%m-%d %H:%M")
     next_birthday = birthday.replace(year=now.year)
 
@@ -92,26 +93,49 @@ for user in users_data:
         next_birthday = next_birthday.replace(year=now.year + 1)
 
     days_left = (next_birthday - now).days
+    user["days_left"] = days_left  # Add days_left to user data for sorting
 
-    # Choose the appropriate message based on days left until the birthday
-    if days_left == 0:
+# Sort users by days_left, prioritizing those with the nearest birthdays
+sorted_users_data = sorted(users_data, key=lambda x: x["days_left"])
+
+for user in sorted_users_data:
+    username = user["username"]
+    days_left = user["days_left"]  # Get days_left from the sorted user data
+    message_type = user.get("message_type", "daily")  # Default to daily if not set
+
+    # If the user is set for daily messages
+    if message_type == "daily":
+        if days_left == 0:
+            # Send birthday message
+            message = get_unique_message(
+                used_birthday_messages,
+                wishes_data["birthday_messages"],
+                username,
+                used_birthday_path
+            ).format(name=user["name"])
+        else:
+            # Send countdown message
+            message = get_unique_message(
+                used_countdown_messages,
+                wishes_data["countdown_messages"],
+                username,
+                used_countdown_path
+            ).format(
+                name=user["name"],
+                days_left=days_left,
+                date=next_birthday.strftime('%d-%B %Y at %I:%M %p')
+            )
+
+    # If the user is set for birthday messages only
+    elif message_type == "birthday" and days_left == 0:
         message = get_unique_message(
-            used_birthday_messages, 
-            wishes_data["birthday_messages"], 
-            username, 
+            used_birthday_messages,
+            wishes_data["birthday_messages"],
+            username,
             used_birthday_path
         ).format(name=user["name"])
     else:
-        message = get_unique_message(
-            used_countdown_messages, 
-            wishes_data["countdown_messages"], 
-            username, 
-            used_countdown_path
-        ).format(
-            name=user["name"], 
-            days_left=days_left, 
-            date=next_birthday.strftime('%d-%B %Y at %I:%M %p')
-        )
+        continue  # Skip sending any messages if it's not their birthday and they're set to birthday messages only
 
     message = message.encode('utf-8').decode('utf-8')
 
@@ -121,7 +145,7 @@ for user in users_data:
         cl.direct_send(message, [user_id])
         print(f"Message sent to {username}!")
 
-        delay = random.randint(30, 60)
+        delay = random.randint(40, 60)  # Random delay to mimic human behavior
         print(f"Waiting {delay} seconds before sending the next message...")
         time.sleep(delay)
     except Exception as e:

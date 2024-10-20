@@ -15,19 +15,28 @@ A Python-based Instagram bot that logs into an Instagram account and sends perso
 
 ---
 
+## **Technology Stack**  
+- **Language**: Python  
+- **Instagram API**: [instagrapi](https://github.com/adw0rd/instagrapi)  
+- **Environment Management**: [python-dotenv](https://github.com/theskumar/python-dotenv)  
+- **Data Handling**: `JSON`, `datetime`  
+- **Scheduling**: `time.sleep()` for message intervals  
+
+---
+
 ## **Project Structure 🗂**
 
 ```bash
-instaBot/
+WishBot/
 │
-├── main.py                    # Main script for sending birthday wishes
-├── .env                       # Environment file to store Instagram credentials
-├── session.json               # Session data to reuse login (auto-generated)
-├── users_data.json            # JSON file with user data (username, name, birthday)
-├── wishes.json                # JSON file with birthday and countdown messages
-├── used_birthday_messages.json  # Tracks used birthday messages
-├── used_countdown_messages.json # Tracks used countdown messages
-└── README.md                  # Project documentation (you are here!)
+├── wishbot.py            # Main script to run the bot
+├── users_data.json       # Stores user information and preferences
+├── wishes.json           # Stores birthday and countdown messages
+├── session.json          # Saves Instagram session
+├── used_birthday_messages.json  # Tracks sent birthday messages
+├── used_countdown_messages.json # Tracks sent countdown messages
+├── .env                  # Stores environment variables (Instagram credentials)
+└── README.md             # Documentation (you are here!)
 ```
 
 ---
@@ -141,7 +150,11 @@ python main.py
    - The bot **tracks used messages** in `used_birthday_messages.json` and `used_countdown_messages.json` to prevent duplicates.
    - If all messages have been used, it resets the list.
 
-4. **Error Handling**:
+4. **Daily vs. Birthday Messages**
+   - Based on the `message_type` in `users_data.json`
+   - It sends either a countdown or birthday message.  
+
+5. **Error Handling**:
    - If login or message sending fails, the bot **logs the error** and moves on to the next user.
    - A **random delay** (30-60 seconds) is added between messages to avoid spam detection.
 
@@ -193,5 +206,6 @@ Feel free to submit **pull requests** or **issues** to contribute to this projec
 - Merged the sections to create a clear flow and cohesive structure.
 - Ensured that all features and functionalities are well articulated.
 - Maintained formatting for easy reading and navigation.
+- Introduced daily and only birthday function
 
 Feel free to modify any sections or details as necessary!
