@@ -98,15 +98,27 @@ for user in users_data:
 # Sort users by days_left, prioritizing those with the nearest birthdays
 sorted_users_data = sorted(users_data, key=lambda x: x["days_left"])
 
+# Helper function to calculate the next birthday
+def calculate_next_birthday(birthday_str):
+    birthday = datetime.strptime(birthday_str, "%Y-%m-%d %H:%M")
+    next_birthday = birthday.replace(year=now.year)
+    
+    if next_birthday < now:
+        next_birthday = next_birthday.replace(year=now.year + 1)
+    
+    return next_birthday
+
 for user in sorted_users_data:
     username = user["username"]
-    days_left = user["days_left"]  # Get days_left from the sorted user data
-    message_type = user.get("message_type", "daily")  # Default to daily if not set
+    days_left = user["days_left"]
+    
+    # Calculate the next birthday only once
+    next_birthday = calculate_next_birthday(user["birthday"])
 
-    # If the user is set for daily messages
+    message_type = user.get("message_type", "daily")
+
     if message_type == "daily":
         if days_left == 0:
-            # Send birthday message
             message = get_unique_message(
                 used_birthday_messages,
                 wishes_data["birthday_messages"],
@@ -114,7 +126,6 @@ for user in sorted_users_data:
                 used_birthday_path
             ).format(name=user["name"])
         else:
-            # Send countdown message
             message = get_unique_message(
                 used_countdown_messages,
                 wishes_data["countdown_messages"],
@@ -123,10 +134,8 @@ for user in sorted_users_data:
             ).format(
                 name=user["name"],
                 days_left=days_left,
-                date=next_birthday.strftime('%d-%B %Y at %I:%M %p')
+                date=next_birthday.strftime('%d-%B %Y at %I:%M %p')  # Unique date
             )
-
-    # If the user is set for birthday messages only
     elif message_type == "birthday" and days_left == 0:
         message = get_unique_message(
             used_birthday_messages,
@@ -135,17 +144,16 @@ for user in sorted_users_data:
             used_birthday_path
         ).format(name=user["name"])
     else:
-        continue  # Skip sending any messages if it's not their birthday and they're set to birthday messages only
+        continue
 
     message = message.encode('utf-8').decode('utf-8')
 
-    # Send the message to the user via Instagram Direct Message
     try:
         user_id = cl.user_id_from_username(username)
         cl.direct_send(message, [user_id])
         print(f"Message sent to {username}!")
 
-        delay = random.randint(40, 60)  # Random delay to mimic human behavior
+        delay = random.randint(40, 60)
         print(f"Waiting {delay} seconds before sending the next message...")
         time.sleep(delay)
     except Exception as e:
