@@ -1,211 +1,131 @@
-# **Instagram Birthday Bot 🎉**
+# Instagram Automation Bot
 
-A Python-based Instagram bot that logs into an Instagram account and sends personalized birthday wishes to users listed in a JSON file. This bot calculates the number of days remaining until the user's birthday and sends timely wishes via Instagram Direct Message (DM). It also manages sessions and avoids message duplication.
+This is an open-source Instagram automation bot designed for sending personalized **birthday messages** and **countdown messages** to users. The project uses the `instagrapi` library to interact with Instagram's API and is structured for scalability, reusability, and maintainability.
 
----
+## Features
 
-## **Features 📋**
+- **Session Management**: Automatically saves and reloads the login session to avoid frequent logins.
+- **Personalized Messages**: Sends unique birthday and countdown messages to users based on their data.
+- **Data Handling**: Reads user data, message templates, and usage history from JSON files.
+- **Error Handling**: Includes structured error handling for login and message-sending operations.
+- **Modular Design**: Functions are divided logically for better readability and reusability.
 
-- **Automated login** using the `instagrapi` library with session management.
-- **Reads user data** from a JSON file containing usernames, names, and birthdays.
-- **Calculates the next occurrence** of the user's birthday.
-- **Sends personalized birthday wishes** on the user's birthday or countdown messages in advance.
-- **Graceful error handling** during login and message sending.
-- **Prevents duplicate messages** by tracking used messages in JSON files.
+## Installation
 
----
+### Prerequisites
 
-## **Technology Stack**  
-- **Language**: Python  
-- **Instagram API**: [instagrapi](https://github.com/adw0rd/instagrapi)  
-- **Environment Management**: [python-dotenv](https://github.com/theskumar/python-dotenv)  
-- **Data Handling**: `JSON`, `datetime`  
-- **Scheduling**: `time.sleep()` for message intervals  
+- Python 3.8+
+- An Instagram account
+- Environment file (`.env`) with the following variables:
+  ```env
+  INSTAGRAM_USERNAME=<your_instagram_username>
+  INSTAGRAM_PASSWORD=<your_instagram_password>
+  ```
 
----
+### Steps
 
-## **Project Structure 🗂**
+1. Clone the repository:
 
-```bash
-WishBot/
-│
-├── wishbot.py            # Main script to run the bot
-├── users_data.json       # Stores user information and preferences
-├── wishes.json           # Stores birthday and countdown messages
-├── session.json          # Saves Instagram session
-├── used_birthday_messages.json  # Tracks sent birthday messages
-├── used_countdown_messages.json # Tracks sent countdown messages
-├── .env                  # Stores environment variables (Instagram credentials)
-└── README.md             # Documentation (you are here!)
-```
-
----
-
-## **Prerequisites 🛠**
-
-1. **Python 3.x** installed on your system.  
-2. An **Instagram account** (Ensure it's verified to avoid login issues).  
-3. Install the required Python packages:
-
-    ```bash
-    pip install instagrapi python-dotenv
-    ```
-
----
-
-## **Setup Guide 🔧**
-
-### 1. **Clone the Repository**
-
-```bash
-git clone https://github.com/sudhucodes/instaBot.git
-cd instaBot
-```
-
----
-
-### 2. **Prepare the User Data**
-
-Create a file named `users_data.json` in the project folder with the following structure:
-
-```json
-[
-  {
-    "username": "user1_insta",
-    "name": "User One",
-    "birthday": "1995-10-18 00:00"
-  },
-  {
-    "username": "user2_insta",
-    "name": "User Two",
-    "birthday": "2000-12-25 15:30"
-  }
-]
-```
-
-- **`username`**: Instagram username of the user.
-- **`name`**: The user's real name for personalized messages.
-- **`birthday`**: Date and time in the format `YYYY-MM-DD HH:MM`.
-
----
-
-### 3. **Configure Instagram Credentials**
-
-1. Create a **`.env` file** in the `instaBot/` folder with your Instagram credentials:
-
-   ```env
-   INSTAGRAM_USERNAME=your_insta_username
-   INSTAGRAM_PASSWORD=your_insta_password
+   ```bash
+   git clone https://github.com/sudhucodes/InstaBirthdayBot
+   cd InstaBirthdayBot
    ```
 
-2. Ensure the credentials are correct to avoid login issues.
+2. Install dependencies:
 
----
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### 4. **Customize Messages**
+3. Create the `.env` file:
 
-Create a file named `wishes.json` with your birthday and countdown messages:
+   ```bash
+   touch .env
+   ```
 
-```json
-{
-  "birthday_messages": [
-    "Happy Birthday, {name}! 🎉 Hope you have an amazing day!",
-    "Wishing you all the best on your special day, {name}! 🎂"
-  ],
-  "countdown_messages": [
-    "Only {days_left} days to go until your birthday, {name}! 🎊",
-    "Get ready, {name}! Your birthday is coming up on {date}. 🎈"
-  ]
-}
-```
+   Add your Instagram credentials to the `.env` file.
 
-- **`{name}`**: Placeholder for the user's name.
-- **`{days_left}`**: Days left until the birthday.
-- **`{date}`**: The exact date of the birthday.
+4. Create required JSON files if they don't exist:
 
----
+   ```bash
+   touch wishes.json users_data.json used_birthday_messages.json used_countdown_messages.json
+   ```
 
-### 5. **Run the Bot**
+5. Add data to `wishes.json` and `users_data.json`:
 
-Execute the following command in your terminal:
+   - `wishes.json` (message templates):
+     ```json
+     {
+       "birthday_messages": [
+         "Happy Birthday, {name}! 🎉",
+         "Wishing you a fantastic birthday, {name}! 🥳"
+       ],
+       "countdown_messages": [
+         "Hey {name}, only {days_left} days left until your big day on {date}!",
+         "Countdown alert! {name}'s birthday is just {days_left} days away ({date})."
+       ]
+     }
+     ```
+   - `users_data.json` (user information):
+     ```json
+     [
+       {
+         "username": "example_user",
+         "name": "John Doe",
+         "birthday": "2000-12-25 00:00",
+         "message_type": "daily"
+       }
+     ]
+     ```
+
+## Usage
+
+Run the bot using the following command:
 
 ```bash
 python main.py
 ```
 
----
+The bot will:
 
-## **How It Works 🛠️**
+1. Log in to your Instagram account.
+2. Load user and message data from JSON files.
+3. Calculate days left until users' birthdays.
+4. Send personalized messages to each user.
 
-1. **Session Management**:
-   - If a session exists in `session.json`, the bot tries to use it for login.
-   - If the session fails, it performs a **fresh login** and saves a new session.
+## File Structure
 
-2. **Sending Messages**:
-   - For each user in `users_data.json`, the bot calculates the **next birthday**.
-   - If **today is the user’s birthday**, a birthday message is sent.
-   - If **the birthday is upcoming**, a countdown message is sent with the number of days left.
+- `main.py`: The main script.
+- `wishes.json`: Contains message templates for birthdays and countdowns.
+- `users_data.json`: Contains user information (username, birthday, etc.).
+- `used_birthday_messages.json`: Tracks used birthday messages to avoid repetition.
+- `used_countdown_messages.json`: Tracks used countdown messages to avoid repetition.
 
-3. **Unique Message Handling**:
-   - The bot **tracks used messages** in `used_birthday_messages.json` and `used_countdown_messages.json` to prevent duplicates.
-   - If all messages have been used, it resets the list.
+## Contributing
 
-4. **Daily vs. Birthday Messages**
-   - Based on the `message_type` in `users_data.json`
-   - It sends either a countdown or birthday message.  
+Contributions are welcome! Please follow these steps:
 
-5. **Error Handling**:
-   - If login or message sending fails, the bot **logs the error** and moves on to the next user.
-   - A **random delay** (30-60 seconds) is added between messages to avoid spam detection.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -m "Add feature"`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a Pull Request.
 
----
+## License
 
-## **Error Handling & Session Recovery 🔄**
-
-- If the **`session.json`** file is missing, the bot performs a fresh login.
-- If the **Instagram credentials** are incorrect, the login will fail, and the program will exit.
-- The bot ensures that **JSON files for tracking used messages** exist; if not, they are created automatically.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## **Example Run 🖥️**
+## Contact Information:  
+Developed and maintained by **SudhuCodes**.  
 
-```
-Session loaded and login successful!
-Message sent to user1_insta!
-Waiting 45 seconds before sending the next message...
-Message sent to user2_insta!
-All messages processed successfully!
-```
-
----
-
-## **Contact 📧**
-
-If you have any questions or need further help, feel free to reach out:
-
-- **GitHub**: [sudhucodes](https://github.com/sudhucodes)  
-- **Instagram**: [@sudhucodes](https://instagram.com/sudhucodes)  
-- **Email**: sudhuteam@gmail.com  
-- **Twitter**: [@sudhucodes](https://twitter.com/sudhucodes)
+- **GitHub:** [@sudhucodes](https://github.com/sudhucodes)  
+- **Instagram:** [@sudhucodes](https://instagram.com/sudhucodes)  
+- **YouTube:** [SudhuCodes YT Channel](https://www.youtube.com/@sudhucodes)  
+- **Telegram**: [SudhuCodes TG Channel](https://t.me/sudhucodes)
+- **Email:** [sudhuteam@gmail.com](mailto:sudhuteam@gmail.com)
 
 ---
 
-## **License 📝**
-
-This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
-
----
-
-## **Contributing 🤝**
-
-Feel free to submit **pull requests** or **issues** to contribute to this project. All contributions are welcome!
-```
-
-### Key Changes Made:
-- Merged the sections to create a clear flow and cohesive structure.
-- Ensured that all features and functionalities are well articulated.
-- Maintained formatting for easy reading and navigation.
-- Introduced daily and only birthday function
-
-Feel free to modify any sections or details as necessary!
+Feel free to reach out for support or questions!

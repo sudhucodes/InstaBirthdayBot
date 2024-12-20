@@ -1,20 +1,20 @@
 [
     {
-        "username": "ig__sudhanshu__",
-        "birthday": "2006-09-20 18:20",
-        "name": "Sudhanshu",
+        "username": "john_doe_123",
+        "birthday": "1995-04-15 14:30",
+        "name": "John Doe",
         "message_type": "daily"
     },
     {
-        "username": "shrishti_nids",
-        "birthday": "2009-01-18 07:17",
-        "name": "Shrishti Nids",
+        "username": "jane_smith_89",
+        "birthday": "1998-11-22 09:00",
+        "name": "Jane Smith",
         "message_type": "daily"
     },
     {
-        "username": "__chiku__029",
-        "birthday": "2007-10-29 22:00",
-        "name": "Chandni",
+        "username": "alice_wonderland",
+        "birthday": "2000-12-01 18:00",
+        "name": "Alice Wonderland",
         "message_type": "birthday"
     }
 ]
