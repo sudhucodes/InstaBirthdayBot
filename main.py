@@ -4,6 +4,7 @@ import json
 import random
 import time
 import os
+import pytz
 from dotenv import load_dotenv
 
 def initialize_client():
@@ -74,26 +75,30 @@ def get_unique_message(used_dict, message_list, user, key):
 
             return message_list[index]
 
+def get_india_time():
+    utc_now = datetime.now(pytz.utc)
+    india_tz = pytz.timezone('Asia/Kolkata')
+    return utc_now.astimezone(india_tz)
+
+
 def calculate_next_birthday(birthday_str, now):
-    birthday = datetime.strptime(birthday_str, "%Y-%m-%d %H:%M")
+    birthday = datetime.strptime(birthday_str, "%Y-%m-%d %H:%M").date() 
     next_birthday = birthday.replace(year=now.year)
 
-    if next_birthday < now:
+    if next_birthday < now.date():
         next_birthday = next_birthday.replace(year=now.year + 1)
 
     return next_birthday
 
 def process_users(cl, wishes_data, users_data, used_birthday_messages, used_countdown_messages, paths):
-    now = datetime.now()
+    now = get_india_time()
+    today_date = now.date() 
 
     for user in users_data:
-        birthday = datetime.strptime(user["birthday"], "%Y-%m-%d %H:%M")
-        next_birthday = birthday.replace(year=now.year)
+        birthday = datetime.strptime(user["birthday"], "%Y-%m-%d %H:%M").date()
+        next_birthday = calculate_next_birthday(user["birthday"], now)
 
-        if next_birthday < now:
-            next_birthday = next_birthday.replace(year=now.year + 1)
-
-        days_left = (next_birthday - now).days
+        days_left = (next_birthday - today_date).days
         user["days_left"] = days_left
 
     sorted_users_data = sorted(users_data, key=lambda x: x["days_left"])
@@ -101,12 +106,10 @@ def process_users(cl, wishes_data, users_data, used_birthday_messages, used_coun
     for user in sorted_users_data:
         username = user["username"]
         days_left = user["days_left"]
-
-        next_birthday = calculate_next_birthday(user["birthday"], now)
         message_type = user.get("message_type", "daily")
 
         if message_type == "daily":
-            if days_left == 0:
+            if days_left == 0: 
                 message = get_unique_message(
                     used_birthday_messages,
                     wishes_data["birthday_messages"],
@@ -122,9 +125,9 @@ def process_users(cl, wishes_data, users_data, used_birthday_messages, used_coun
                 ).format(
                     name=user["name"],
                     days_left=days_left,
-                    date=next_birthday.strftime('%d-%B %Y at %I:%M %p')
+                    date=next_birthday.strftime('%d-%B %Y')
                 )
-        elif message_type == "birthday" and days_left == 0:
+        elif message_type == "birthday" and days_left == 0: 
             message = get_unique_message(
                 used_birthday_messages,
                 wishes_data["birthday_messages"],
