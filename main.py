@@ -95,7 +95,6 @@ def process_users(cl, wishes_data, users_data, used_birthday_messages, used_coun
     today_date = now.date() 
 
     for user in users_data:
-        birthday = datetime.strptime(user["birthday"], "%Y-%m-%d %H:%M").date()
         next_birthday = calculate_next_birthday(user["birthday"], now)
 
         days_left = (next_birthday - today_date).days
@@ -107,7 +106,9 @@ def process_users(cl, wishes_data, users_data, used_birthday_messages, used_coun
         username = user["username"]
         days_left = user["days_left"]
         message_type = user.get("message_type", "daily")
+        next_birthday = calculate_next_birthday(user["birthday"], now)
 
+        
         if message_type == "daily":
             if days_left == 0: 
                 message = get_unique_message(
