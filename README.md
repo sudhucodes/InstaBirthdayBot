@@ -72,9 +72,15 @@ This is an open-source Instagram automation bot designed for sending personalize
        {
          "username": "example_user",
          "name": "John Doe",
-         "birthday": "2000-12-25 00:00",
+         "birthday": "2000-12-25 10:00 AM",
          "message_type": "daily"
-       }
+       },
+       {
+         "username": "example_user2",
+         "name": "Devine Jain",
+         "birthday": "1997-05-12 06:33 PM",
+         "message_type": "birthday"
+       },
      ]
      ```
 

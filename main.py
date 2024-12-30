@@ -1,3 +1,4 @@
+import logging
 from instagrapi import Client
 from datetime import datetime
 import json
@@ -6,6 +7,18 @@ import time
 import os
 import pytz
 from dotenv import load_dotenv
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+
+# Configure logger
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("bot.log", encoding='utf-8'),
+        logging.StreamHandler()
+    ]
+)
 
 def initialize_client():
     load_dotenv('/home/sudhucodes/instaBot/.env')
@@ -19,16 +32,16 @@ def initialize_client():
     try:
         cl.load_settings(session_path)
         cl.login(username, password)
-        print("Session loaded and login successful!")
+        logging.info("Session loaded and login successful!")
     except Exception as e:
-        print(f"Session load failed: {e}. Attempting fresh login...")
+        logging.error(f"Session load failed: {e}. Attempting fresh login...")
         time.sleep(random.randint(60, 180))
         try:
             cl.login(username, password)
             cl.dump_settings(session_path)
-            print("Fresh login successful, session saved!")
+            logging.info("Fresh login successful, session saved!")
         except Exception as e:
-            print(f"Login failed: {e}")
+            logging.critical(f"Login failed: {e}")
             exit()
     return cl
 
@@ -45,17 +58,21 @@ def load_files():
             with open(paths[key], "w") as f:
                 json.dump({}, f)
 
-    with open(paths["wishes"], "r", encoding='utf-8') as file:
-        wishes_data = json.load(file)
+    try:
+        with open(paths["wishes"], "r", encoding='utf-8') as file:
+            wishes_data = json.load(file)
 
-    with open(paths["users"], "r", encoding='utf-8') as file:
-        users_data = json.load(file)
+        with open(paths["users"], "r", encoding='utf-8') as file:
+            users_data = json.load(file)
 
-    with open(paths["used_birthday"], "r") as file:
-        used_birthday_messages = json.load(file)
+        with open(paths["used_birthday"], "r") as file:
+            used_birthday_messages = json.load(file)
 
-    with open(paths["used_countdown"], "r") as file:
-        used_countdown_messages = json.load(file)
+        with open(paths["used_countdown"], "r") as file:
+            used_countdown_messages = json.load(file)
+    except Exception as e:
+        logging.critical(f"Error loading files: {e}")
+        exit()
 
     return paths, wishes_data, users_data, used_birthday_messages, used_countdown_messages
 
@@ -80,22 +97,28 @@ def get_india_time():
     india_tz = pytz.timezone('Asia/Kolkata')
     return utc_now.astimezone(india_tz)
 
-
 def calculate_next_birthday(birthday_str, now):
-    birthday = datetime.strptime(birthday_str, "%Y-%m-%d %H:%M").date() 
-    next_birthday = birthday.replace(year=now.year)
+    try:
+        birthday = datetime.strptime(birthday_str, "%Y-%m-%d %H:%M").date()
+        next_birthday = birthday.replace(year=now.year)
 
-    if next_birthday < now.date():
-        next_birthday = next_birthday.replace(year=now.year + 1)
+        if next_birthday < now.date():
+            next_birthday = next_birthday.replace(year=now.year + 1)
 
-    return next_birthday
+        return next_birthday
+    except Exception as e:
+        logging.error(f"Error calculating next birthday: {e}")
+        return None
 
 def process_users(cl, wishes_data, users_data, used_birthday_messages, used_countdown_messages, paths):
     now = get_india_time()
-    today_date = now.date() 
+    today_date = now.date()
 
     for user in users_data:
         next_birthday = calculate_next_birthday(user["birthday"], now)
+
+        if not next_birthday:
+            continue
 
         days_left = (next_birthday - today_date).days
         user["days_left"] = days_left
@@ -108,9 +131,8 @@ def process_users(cl, wishes_data, users_data, used_birthday_messages, used_coun
         message_type = user.get("message_type", "daily")
         next_birthday = calculate_next_birthday(user["birthday"], now)
 
-        
         if message_type == "daily":
-            if days_left == 0: 
+            if days_left == 0:
                 message = get_unique_message(
                     used_birthday_messages,
                     wishes_data["birthday_messages"],
@@ -128,7 +150,7 @@ def process_users(cl, wishes_data, users_data, used_birthday_messages, used_coun
                     days_left=days_left,
                     date=next_birthday.strftime('%d-%B %Y')
                 )
-        elif message_type == "birthday" and days_left == 0: 
+        elif message_type == "birthday" and days_left == 0:
             message = get_unique_message(
                 used_birthday_messages,
                 wishes_data["birthday_messages"],
@@ -146,18 +168,21 @@ def send_message(cl, username, message):
     try:
         user_id = cl.user_id_from_username(username)
         cl.direct_send(message, [user_id])
-        print(f"Message sent to {username}!")
+        logging.info(f"Message sent to {username}!")
 
         delay = random.randint(40, 60)
-        print(f"Waiting {delay} seconds before sending the next message...")
+        logging.info(f"Waiting {delay} seconds before sending the next message...")
         time.sleep(delay)
     except Exception as e:
-        print(f"Failed to send message to {username}: {e}")
+        logging.error(f"Failed to send message to {username}: {e}")
 
 def main():
-    cl = initialize_client()
-    paths, wishes_data, users_data, used_birthday_messages, used_countdown_messages = load_files()
-    process_users(cl, wishes_data, users_data, used_birthday_messages, used_countdown_messages, paths)
+    try:
+        cl = initialize_client()
+        paths, wishes_data, users_data, used_birthday_messages, used_countdown_messages = load_files()
+        process_users(cl, wishes_data, users_data, used_birthday_messages, used_countdown_messages, paths)
+    except Exception as e:
+        logging.critical(f"Critical error in main: {e}")
 
 if __name__ == "__main__":
     main()
