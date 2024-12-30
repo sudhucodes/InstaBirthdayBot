@@ -8,9 +8,11 @@ import os
 import pytz
 from dotenv import load_dotenv
 import sys
+
+
+
 sys.stdout.reconfigure(encoding='utf-8')
 
-# Configure logger
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',

@@ -80,7 +80,7 @@ This is an open-source Instagram automation bot designed for sending personalize
          "name": "Devine Jain",
          "birthday": "1997-05-12 06:33 PM",
          "message_type": "birthday"
-       },
+       }
      ]
      ```
 
@@ -98,6 +98,52 @@ The bot will:
 2. Load user and message data from JSON files.
 3. Calculate days left until users' birthdays.
 4. Send personalized messages to each user.
+
+## Deploying on PythonAnywhere
+
+Follow these steps to deploy the bot on PythonAnywhere:
+
+1. **Create an account** on [PythonAnywhere](https://www.pythonanywhere.com/).
+2. **Upload your files**:
+   - Navigate to the **Files** section on PythonAnywhere.
+   - Upload the `main.py`, `wishes.json`, `users_data.json`, and `.env` files.
+   - Ensure you upload the necessary directories and files for the bot's execution.
+3. **Set up a virtual environment** (optional but recommended):
+   - Go to the **Consoles** section and start a **Bash** console.
+   - Create a virtual environment:
+     ```bash
+     python3.8 -m venv insta_env
+     ```
+   - Activate the virtual environment:
+     ```bash
+     source insta_env/bin/activate
+     ```
+   - Install the required dependencies:
+     ```bash
+     pip install -r requirements.txt
+     ```
+4. **Run the bot**:
+   - Open a new **Bash** console.
+   - Navigate to your project folder:
+     ```bash
+     cd /path/to/your/project
+     ```
+   - Run the bot with the command:
+     ```bash
+     python main.py
+     ```
+
+## Scheduling the Bot
+
+To schedule the bot to run automatically at specified times:
+
+1. In PythonAnywhere, go to the **Tasks** section.
+2. Click on **Add a new task** and enter the command to run your script:
+   ```bash
+   python /path/to/your/project/main.py
+   ```
+3. Set the desired time interval (e.g., to run once a day or multiple times a day).
+4. Save the task, and PythonAnywhere will automatically run the bot according to the schedule.
 
 ## File Structure
 
