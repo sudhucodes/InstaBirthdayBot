@@ -17,19 +17,19 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("bot.log", encoding='utf-8'),
+        logging.FileHandler("/home/sudhucodes/instaBot/bot.log", encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
 
 def initialize_client():
-    load_dotenv('.env')
+    load_dotenv('/home/sudhucodes/instaBot/.env')
     
     username = os.getenv("INSTAGRAM_USERNAME")
     password = os.getenv("INSTAGRAM_PASSWORD")
 
     cl = Client()
-    session_path = "session.json"
+    session_path = "/home/sudhucodes/instaBot/session.json"
 
     try:
         cl.load_settings(session_path)
@@ -49,11 +49,11 @@ def initialize_client():
 
 def load_files():
     paths = {
-        "wishes": "wishes.json",
-        "users": "users_data.json",
-        "used_birthday": "used_birthday_messages.json",
-        "used_countdown": "used_countdown_messages.json",
-        "used_special": "used_special_messages.json"
+        "wishes": "/home/sudhucodes/instaBot/wishes.json",
+        "users": "/home/sudhucodes/instaBot/users_data.json",
+        "used_birthday": "/home/sudhucodes/instaBot/used_birthday_messages.json",
+        "used_countdown": "/home/sudhucodes/instaBot/used_countdown_messages.json",
+        "used_special": "/home/sudhucodes/instaBot/used_special_messages.json"
     }
 
     for key in ["used_birthday", "used_countdown", "used_special"]:
@@ -194,18 +194,7 @@ def process_users(cl, wishes_data, users_data, used_birthday_messages, used_coun
 
 
 def send_message(cl, username, message):
-    message = message.encode('utf-8').decode('utf-8')
-
-    try:
-        user_id = cl.user_id_from_username(username)
-        cl.direct_send(message, [user_id])
-        logging.info(f"Message sent to {username}!")
-
-        delay = random.randint(40, 60)
-        logging.info(f"Waiting {delay} seconds before sending the next message...")
-        time.sleep(delay)
-    except Exception as e:
-        logging.error(f"Failed to send message to {username}: {e}")
+    print(username, message)
 
 def main():
     try:

@@ -73,21 +73,13 @@
         "🎈 Birthday vibes incoming, {name}! 🎈\n\n{days_left} din baaki hain for your grand celebration on {date}! 🗓️ Get ready for love, laughter, and cake galore! 🎉🎂"
     ],
     "special_days": [
-    {
-      "name": "New Year's Day",
-      "date": "2024-01-01",
-      "messages": [
-        "Happy New Year, {name}! Wishing you a year full of happiness and success.",
-        "Cheers to a new year and new beginnings, {name}!"
-      ]
-    },
-    {
-      "name": "Christmas",
-      "date": "2024-12-25",
-      "messages": [
-        "Merry Christmas, {name}! May this festive season bring you joy and peace.",
-        "Wishing you a Merry Christmas, {name}! May your days be merry and bright."
-      ]
-    }
+      {
+        "name": "New Year's Day",
+        "date": "2025-01-01",
+        "messages": [
+          "Happy New Year, {name}!\nWishing you a year full of happiness, prosperity, and success. May all your dreams come true in 2025!",
+          "Happy New Year, {name}!\nMay the coming year bring you love, laughter, and countless blessings. Let's make it the best one yet!"
+        ]
+      }
   ]
 }
