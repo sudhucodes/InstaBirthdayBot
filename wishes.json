@@ -10,7 +10,7 @@
 
         "🎈 Let's celebrate you, {name}! 🎈\n\nOnly {days_left} days to go! \nPrepare yourself for a birthday party filled with laughter and joy on {date}! 🎉",
 
-        "🌈 Hey {name}! 🎉\n\nOnly {days_left} days left until we celebrate your birthday on {date}! \nLet the countdown begin for an unforgettable celebration! 🎂",
+        "🎊 Hey {name}! 🎉\n\nOnly {days_left} days left until we celebrate your birthday on {date}! \nLet the countdown begin for an unforgettable celebration! 🎂",
 
         "🎉 Countdown Alert, {name}! 🎉\n\nSirf {days_left} din baaki hain until we celebrate on {date}! \nAre you ready for an amazing birthday? Plan your celebration and get ready for a blast! 🌟",
 
@@ -32,6 +32,44 @@
 
         "🎉 Get excited, {name}! 🎉\n\nYour birthday is just {days_left} days away on {date}! \nReady for some cake, fun, and celebration? 🎊",
 
-        "🎉 Almost there, {name}! 🎉\n\nOnly {days_left} days left until we celebrate you on {date}! \nMark the date and get ready for a day full of joy, surprises, and lots of love! 🎈"
+        "🎉 Almost there, {name}! 🎉\n\nOnly {days_left} days left until we celebrate you on {date}! \nMark the date and get ready for a day full of joy, surprises, and lots of love! 🎈",
+        
+        "🎂 The wait is almost over, {name}! 🎂\n\nYour big day is just {days_left} days away on {date}! \nGet ready for the celebrations to begin! 🎉🎈", 
+
+        "🎉 Hey {name}, it's almost party time! 🎉\n\nJust {days_left} days until we celebrate YOU on {date}! 🎂✨ Let's make it magical! 🌟", 
+
+        "🎊 Countdown Update: {name}! 🎊\n\n{days_left} days to go until your special day on {date}! \nTime to gear up for unforgettable moments and endless happiness! 🥳🎈", 
+
+        "✨ Hello, {name}! ✨\n\nAapke birthday mein sirf {days_left} din bache hain! 🗓️ Mark the date: {date}! \nBahut saari surprises aapka intezaar kar rahe hain! 🎂🎉", 
+
+        "🌟 Special Alert, {name}! 🌟\n\nJust {days_left} days left for your big day on {date}! 🎊 Let’s make it a day full of surprises, smiles, and cake! 🎂🎈", 
+
+        "🎂 Birthday Countdown: {name}! 🎂\n\nYour special day is only {days_left} days away! 🗓️ Don't forget, {date} is all about YOU! Let's make it epic! 🎉✨", 
+
+        "🎉 {name}, time to get excited! 🎉\n\nYour birthday is in {days_left} days on {date}! 🎂 It’s going to be a day to remember with lots of joy and love! 💖🎈", 
+
+        "🎂 Ready to celebrate, {name}? 🎂\n\nOnly {days_left} days left until your special day on {date}! \nLet’s get the party vibes rolling! 🥳🎉", 
+
+        "🎊 Birthday vibes are here, {name}! 🎊\n\nJust {days_left} days left until we celebrate YOU on {date}! \nGet ready for cake, fun, and memories that will last forever! 🎂🎈", 
+
+        "✨ {name}, your moment is coming! ✨\n\nOnly {days_left} days to go until your special day on {date}! \nLet’s prepare for an amazing celebration! 🎊🎉", 
+
+        "🎈 Birthday Countdown, {name}! 🎈\n\nSirf {days_left} din bache hain till your big day on {date}! 🗓️ Let's make it a day full of happiness and cake! 🎂🎉", 
+
+        "🎉 Almost your day, {name}! 🎉\n\nYour birthday on {date} is just {days_left} days away! \nLet’s celebrate YOU with all the love and happiness! 🎂🎊", 
+
+        "🎊 Let the countdown begin, {name}! 🎊\n\nYour big day is coming soon — only {days_left} days to go on {date}! 🎂 \nIt’s time to plan an amazing celebration! 🎈✨", 
+
+        "🎂 The clock is ticking, {name}! 🎂\n\nYour special day on {date} is just {days_left} days away! 🎉🎊 \nStart prepping for laughter, joy, and lots of cake! 🎂✨", 
+
+        "🌟 Special Reminder: {name} 🌟\n\nJust {days_left} days until your birthday on {date}! 🎉✨ \nLet’s make it an extraordinary day with all your loved ones! 🎂🎈", 
+
+        "🎊 Birthday Excitement Begins, {name}! 🎊\n\nYour big day is only {days_left} days away on {date}! 🎂🌟 \nReady for a celebration full of smiles, surprises, and love? 🎈✨", 
+
+        "🎉 Woohoo, {name}! 🎉\n\nSirf {days_left} din reh gaye hain until {date} — your special day! 🎂✨ Let’s prepare for an epic birthday celebration! 🎈🎊", 
+
+        "🎂 Countdown Reminder, {name}! 🎂\n\nYour special day is coming up soon! Only {days_left} days left until {date}! 🎉💖\nLet the birthday vibes take over! 🎊✨", 
+
+        "🎈 Birthday vibes incoming, {name}! 🎈\n\n{days_left} din baaki hain for your grand celebration on {date}! 🗓️ Get ready for love, laughter, and cake galore! 🎉🎂"
     ]
 }
