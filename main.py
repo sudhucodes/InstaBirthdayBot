@@ -194,7 +194,18 @@ def process_users(cl, wishes_data, users_data, used_birthday_messages, used_coun
 
 
 def send_message(cl, username, message):
-    print(username, message)
+    message = message.encode('utf-8').decode('utf-8')
+
+    try:
+        user_id = cl.user_id_from_username(username)
+        cl.direct_send(message, [user_id])
+        logging.info(f"Message sent to {username}!")
+
+        delay = random.randint(40, 60)
+        logging.info(f"Waiting {delay} seconds before sending the next message...")
+        time.sleep(delay)
+    except Exception as e:
+        logging.error(f"Failed to send message to {username}: {e}")
 
 def main():
     try:
