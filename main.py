@@ -17,19 +17,19 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("/home/sudhucodes/instaBot/bot.log", encoding='utf-8'),
+        logging.FileHandler("bot.log", encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
 
 def initialize_client():
-    load_dotenv('/home/sudhucodes/instaBot/.env')
+    load_dotenv('.env')
     
     username = os.getenv("INSTAGRAM_USERNAME")
     password = os.getenv("INSTAGRAM_PASSWORD")
 
     cl = Client()
-    session_path = "/home/sudhucodes/instaBot/session.json"
+    session_path = "session.json"
 
     try:
         cl.load_settings(session_path)
@@ -49,13 +49,14 @@ def initialize_client():
 
 def load_files():
     paths = {
-        "wishes": "/home/sudhucodes/instaBot/wishes.json",
-        "users": "/home/sudhucodes/instaBot/users_data.json",
-        "used_birthday": "/home/sudhucodes/instaBot/used_birthday_messages.json",
-        "used_countdown": "/home/sudhucodes/instaBot/used_countdown_messages.json"
+        "wishes": "wishes.json",
+        "users": "users_data.json",
+        "used_birthday": "used_birthday_messages.json",
+        "used_countdown": "used_countdown_messages.json",
+        "used_special": "used_special_messages.json"
     }
 
-    for key in ["used_birthday", "used_countdown"]:
+    for key in ["used_birthday", "used_countdown", "used_special"]:
         if not os.path.exists(paths[key]):
             with open(paths[key], "w") as f:
                 json.dump({}, f)
@@ -72,11 +73,14 @@ def load_files():
 
         with open(paths["used_countdown"], "r") as file:
             used_countdown_messages = json.load(file)
+
+        with open(paths["used_special"], "r") as file:
+            used_special_messages = json.load(file)
     except Exception as e:
         logging.critical(f"Error loading files: {e}")
         exit()
 
-    return paths, wishes_data, users_data, used_birthday_messages, used_countdown_messages
+    return paths, wishes_data, users_data, used_birthday_messages, used_countdown_messages, used_special_messages
 
 def get_unique_message(used_dict, message_list, user, key):
     if user not in used_dict:
@@ -112,9 +116,17 @@ def calculate_next_birthday(birthday_str, now):
         logging.error(f"Error calculating next birthday: {e}")
         return None
 
-def process_users(cl, wishes_data, users_data, used_birthday_messages, used_countdown_messages, paths):
+def process_users(cl, wishes_data, users_data, used_birthday_messages, used_countdown_messages, used_special_messages, paths):
     now = get_india_time()
     today_date = now.date()
+
+    special_days = wishes_data.get("special_days", [])
+
+    special_day_messages = []
+    for special_day in special_days:
+        if today_date == datetime.strptime(special_day["date"], "%Y-%m-%d").date():
+            special_day_messages = special_day.get("messages", [])
+            break
 
     for user in users_data:
         next_birthday = calculate_next_birthday(user["birthday"], now)
@@ -133,7 +145,7 @@ def process_users(cl, wishes_data, users_data, used_birthday_messages, used_coun
         message_type = user.get("message_type", "daily")
         next_birthday = calculate_next_birthday(user["birthday"], now)
 
-        if message_type == "daily":
+        if special_day_messages:
             if days_left == 0:
                 message = get_unique_message(
                     used_birthday_messages,
@@ -143,26 +155,43 @@ def process_users(cl, wishes_data, users_data, used_birthday_messages, used_coun
                 ).format(name=user["name"])
             else:
                 message = get_unique_message(
-                    used_countdown_messages,
-                    wishes_data["countdown_messages"],
+                    used_special_messages,
+                    special_day_messages,
                     username,
-                    paths["used_countdown"]
-                ).format(
-                    name=user["name"],
-                    days_left=days_left,
-                    date=next_birthday.strftime('%d-%B %Y')
-                )
-        elif message_type == "birthday" and days_left == 0:
-            message = get_unique_message(
-                used_birthday_messages,
-                wishes_data["birthday_messages"],
-                username,
-                paths["used_birthday"]
-            ).format(name=user["name"])
+                    paths["used_special"]
+                ).format(name=user["name"])
         else:
-            continue
+            if message_type == "daily":
+                if days_left == 0:
+                    message = get_unique_message(
+                        used_birthday_messages,
+                        wishes_data["birthday_messages"],
+                        username,
+                        paths["used_birthday"]
+                    ).format(name=user["name"])
+                else:
+                    message = get_unique_message(
+                        used_countdown_messages,
+                        wishes_data["countdown_messages"],
+                        username,
+                        paths["used_countdown"]
+                    ).format(
+                        name=user["name"],
+                        days_left=days_left,
+                        date=next_birthday.strftime('%d-%B %Y')
+                    )
+            elif message_type == "birthday" and days_left == 0:
+                message = get_unique_message(
+                    used_birthday_messages,
+                    wishes_data["birthday_messages"],
+                    username,
+                    paths["used_birthday"]
+                ).format(name=user["name"])
+            else:
+                continue
 
         send_message(cl, username, message)
+
 
 def send_message(cl, username, message):
     message = message.encode('utf-8').decode('utf-8')
@@ -181,8 +210,8 @@ def send_message(cl, username, message):
 def main():
     try:
         cl = initialize_client()
-        paths, wishes_data, users_data, used_birthday_messages, used_countdown_messages = load_files()
-        process_users(cl, wishes_data, users_data, used_birthday_messages, used_countdown_messages, paths)
+        paths, wishes_data, users_data, used_birthday_messages, used_countdown_messages, used_special_messages  = load_files()
+        process_users(cl, wishes_data, users_data, used_birthday_messages, used_countdown_messages, used_special_messages, paths)
     except Exception as e:
         logging.critical(f"Critical error in main: {e}")
 
