@@ -77,8 +77,8 @@
         "name": "New Year's Day",
         "date": "2025-01-01",
         "messages": [
-          "Happy New Year, {name}!\nWishing you a year full of happiness, prosperity, and success. May all your dreams come true in 2025!",
-          "Happy New Year, {name}!\nMay the coming year bring you love, laughter, and countless blessings. Let's make it the best one yet!"
+          "🎉 Happy New Year, {name}! 🎆\nWishing you a year full of happiness, prosperity, and success. 🌟 May all your dreams come true in 2025! ✨",
+          "🎊 Happy New Year, {name}! 🎇\nMay the coming year bring you love ❤️, laughter 😊, and countless blessings 🙏. Let's make it the best one yet! 💫"
         ]
       }
   ]

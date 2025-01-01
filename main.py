@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 import sys
 
 
-
 sys.stdout.reconfigure(encoding='utf-8')
 
 logging.basicConfig(
@@ -21,6 +20,40 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
+
+def get_india_time():
+    utc_now = datetime.now(pytz.utc)
+    india_tz = pytz.timezone('Asia/Kolkata')
+    return utc_now.astimezone(india_tz)
+
+def calculate_next_birthday(birthday_str, now):
+    try:
+        birthday = datetime.strptime(birthday_str, "%Y-%m-%d %H:%M").date()
+        next_birthday = birthday.replace(year=now.year)
+
+        if next_birthday < now.date():
+            next_birthday = next_birthday.replace(year=now.year + 1)
+
+        return next_birthday
+    except Exception as e:
+        logging.error(f"Error calculating next birthday: {e}")
+        return None
+
+def get_unique_message(used_dict, message_list, user, key):
+    if user not in used_dict:
+        used_dict[user] = []
+
+    if len(used_dict[user]) >= len(message_list):
+        used_dict[user] = []
+
+    while True:
+        index = random.randint(0, len(message_list) - 1)
+        if index not in used_dict[user]:
+            used_dict[user].append(index)
+            with open(key, "w") as file:
+                json.dump(used_dict, file)
+
+            return message_list[index]
 
 def initialize_client():
     load_dotenv('/home/sudhucodes/instaBot/.env')
@@ -81,40 +114,6 @@ def load_files():
         exit()
 
     return paths, wishes_data, users_data, used_birthday_messages, used_countdown_messages, used_special_messages
-
-def get_unique_message(used_dict, message_list, user, key):
-    if user not in used_dict:
-        used_dict[user] = []
-
-    if len(used_dict[user]) >= len(message_list):
-        used_dict[user] = []
-
-    while True:
-        index = random.randint(0, len(message_list) - 1)
-        if index not in used_dict[user]:
-            used_dict[user].append(index)
-            with open(key, "w") as file:
-                json.dump(used_dict, file)
-
-            return message_list[index]
-
-def get_india_time():
-    utc_now = datetime.now(pytz.utc)
-    india_tz = pytz.timezone('Asia/Kolkata')
-    return utc_now.astimezone(india_tz)
-
-def calculate_next_birthday(birthday_str, now):
-    try:
-        birthday = datetime.strptime(birthday_str, "%Y-%m-%d %H:%M").date()
-        next_birthday = birthday.replace(year=now.year)
-
-        if next_birthday < now.date():
-            next_birthday = next_birthday.replace(year=now.year + 1)
-
-        return next_birthday
-    except Exception as e:
-        logging.error(f"Error calculating next birthday: {e}")
-        return None
 
 def process_users(cl, wishes_data, users_data, used_birthday_messages, used_countdown_messages, used_special_messages, paths):
     now = get_india_time()
@@ -191,7 +190,6 @@ def process_users(cl, wishes_data, users_data, used_birthday_messages, used_coun
                 continue
 
         send_message(cl, username, message)
-
 
 def send_message(cl, username, message):
     message = message.encode('utf-8').decode('utf-8')
