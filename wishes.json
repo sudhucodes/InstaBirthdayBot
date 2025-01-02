@@ -1,85 +1,206 @@
 {
-    "birthday_messages": [
-        "🎉 Happy Birthday, {name}! 🎉\n\nAaj ka din sirf aur sirf aapke liye hai. 🌟 Har pal khushiyon se bhara ho aur saare sapne sach ho. Cake khaaiye, celebrate kariye aur wo logon ke saath waqt bitaaiye jo aapko sabse zyada cherish karte hain. 🎂🎈\n\nIs saal aapke liye naye adventures aur khoobsurat yaadein lekar aaye. Har din ek nayi shuruwaat ho aur zindagi hamesha muskaan se bhari rahe. 💖\nDua hai ki aap hamesha aise hi chamakte rahein aur duniya ki har khushi aapke kadmon mein ho! 🎊\n\nEnjoy your day to the fullest! 🥳"
-    ],
-    
-    "countdown_messages": [
-        "🎉 Exciting news, {name}! 🎉\n\nYour birthday is just {days_left} days away on {date}! \nCan you feel the excitement? Get ready for a fabulous celebration! 🎊",
+  "birthday_messages": [
+      "🎉 Happy Birthday, {name}! 🎉\n\nAaj ka din sirf aur sirf aapke liye hai. 🌟 Har pal khushiyon se bhara ho aur saare sapne sach ho. Cake khaaiye, celebrate kariye aur wo logon ke saath waqt bitaaiye jo aapko sabse zyada cherish karte hain. 🎂🎈\n\nIs saal aapke liye naye adventures aur khoobsurat yaadein lekar aaye. Har din ek nayi shuruwaat ho aur zindagi hamesha muskaan se bhari rahe. 💖\nDua hai ki aap hamesha aise hi chamakte rahein aur duniya ki har khushi aapke kadmon mein ho! 🎊\n\nEnjoy your day to the fullest! 🥳"
+  ],
+  
+  "countdown_messages": [
+      "🎉 Exciting news, {name}! 🎉\n\nYour birthday is just {days_left} days away on {date}! \nCan you feel the excitement? Get ready for a fabulous celebration! 🎊",
 
-        "🎂 Countdown to your birthday, {name}! 🎂\n\nSirf {days_left} din baaki hain celebrations shuru hone ke liye on {date}! \nLet’s make this birthday unforgettable. \nPrepare for fun times and cherished memories ahead! 🌟",
+      "🎂 Countdown to your birthday, {name}! 🎂\n\nSirf {days_left} din baaki hain celebrations shuru hone ke liye on {date}! \nLet’s make this birthday unforgettable. \nPrepare for fun times and cherished memories ahead! 🌟",
 
-        "🎈 Let's celebrate you, {name}! 🎈\n\nOnly {days_left} days to go! \nPrepare yourself for a birthday party filled with laughter and joy on {date}! 🎉",
+      "🎈 Let's celebrate you, {name}! 🎈\n\nOnly {days_left} days to go! \nPrepare yourself for a birthday party filled with laughter and joy on {date}! 🎉",
 
-        "🎊 Hey {name}! 🎉\n\nOnly {days_left} days left until we celebrate your birthday on {date}! \nLet the countdown begin for an unforgettable celebration! 🎂",
+      "🎊 Hey {name}! 🎉\n\nOnly {days_left} days left until we celebrate your birthday on {date}! \nLet the countdown begin for an unforgettable celebration! 🎂",
 
-        "🎉 Countdown Alert, {name}! 🎉\n\nSirf {days_left} din baaki hain until we celebrate on {date}! \nAre you ready for an amazing birthday? Plan your celebration and get ready for a blast! 🌟",
+      "🎉 Countdown Alert, {name}! 🎉\n\nSirf {days_left} din baaki hain until we celebrate on {date}! \nAre you ready for an amazing birthday? Plan your celebration and get ready for a blast! 🌟",
 
-        "🎉 Time is ticking, {name}! 🎉\n\nJust {days_left} days until we celebrate you on {date}! \nPrepare for a day filled with joy and happiness! 🎈",
+      "🎉 Time is ticking, {name}! 🎉\n\nJust {days_left} days until we celebrate you on {date}! \nPrepare for a day filled with joy and happiness! 🎈",
 
-        "🎈 Hey {name}! 🎈\n\nAapka birthday celebration sirf {days_left} din door hai on {date}! \nLet the excitement build as we approach your special day! \nCan't wait to party with you! 🎉",
+      "🎈 Hey {name}! 🎈\n\nAapka birthday celebration sirf {days_left} din door hai on {date}! \nLet the excitement build as we approach your special day! \nCan't wait to party with you! 🎉",
 
-        "🎂 Almost there, {name}! 🎂\n\nOnly {days_left} days left until your special day on {date}! \nPrepare for a day filled with joy, laughter, and lots of cake! \nCan't wait to celebrate together! 🎊",
+      "🎂 Almost there, {name}! 🎂\n\nOnly {days_left} days left until your special day on {date}! \nPrepare for a day filled with joy, laughter, and lots of cake! \nCan't wait to celebrate together! 🎊",
 
-        "🎉 {name}, aapka birthday almost yahaan hai! 🎉\n\nOnly {days_left} days until we celebrate you on {date}! \nMark the date and get ready for a day full of joy, surprises, and lots of love! \nI'm so excited for you! 🎈",
+      "🎉 {name}, aapka birthday almost yahaan hai! 🎉\n\nOnly {days_left} days until we celebrate you on {date}! \nMark the date and get ready for a day full of joy, surprises, and lots of love! \nI'm so excited for you! 🎈",
 
-        "⏰ Hi {name}! 🎉\n\nSirf {days_left} din bache hain until your big celebration on {date}! \nStart counting down the days! \nIt's going to be epic! 🎊",
+      "⏰ Hi {name}! 🎉\n\nSirf {days_left} din bache hain until your big celebration on {date}! \nStart counting down the days! \nIt's going to be epic! 🎊",
 
-        "🎊 The countdown is on, {name}! 🎊\n\nJust {days_left} days remaining until your special day on {date}! \nLet's make it a day to remember! 🎉",
+      "🎊 The countdown is on, {name}! 🎊\n\nJust {days_left} days remaining until your special day on {date}! \nLet's make it a day to remember! 🎉",
 
-        "🌟 Hi {name}! 🎂\n\nSirf {days_left} din hain jab hum aapka special din celebrate karenge on {date}! \nExcitement ka waqt aa gaya hai! Is waqt ko plan karne ka samay hai. \nI can't wait to celebrate with you! 🎉",
+      "🌟 Hi {name}! 🎂\n\nSirf {days_left} din hain jab hum aapka special din celebrate karenge on {date}! \nExcitement ka waqt aa gaya hai! Is waqt ko plan karne ka samay hai. \nI can't wait to celebrate with you! 🎉",
 
-        "🎂 Hi {name}! 🎂\n\nOnly {days_left} days left until your birthday on {date}! \nI hope you're ready for a fantastic day filled with love and fun! 🎈",
+      "🎂 Hi {name}! 🎂\n\nOnly {days_left} days left until your birthday on {date}! \nI hope you're ready for a fantastic day filled with love and fun! 🎈",
 
-        "🎉 Get excited, {name}! 🎉\n\nYour birthday is just {days_left} days away on {date}! \nReady for some cake, fun, and celebration? 🎊",
+      "🎉 Get excited, {name}! 🎉\n\nYour birthday is just {days_left} days away on {date}! \nReady for some cake, fun, and celebration? 🎊",
 
-        "🎉 Almost there, {name}! 🎉\n\nOnly {days_left} days left until we celebrate you on {date}! \nMark the date and get ready for a day full of joy, surprises, and lots of love! 🎈",
-        
-        "🎂 The wait is almost over, {name}! 🎂\n\nYour big day is just {days_left} days away on {date}! \nGet ready for the celebrations to begin! 🎉🎈", 
+      "🎉 Almost there, {name}! 🎉\n\nOnly {days_left} days left until we celebrate you on {date}! \nMark the date and get ready for a day full of joy, surprises, and lots of love! 🎈",
+      
+      "🎂 The wait is almost over, {name}! 🎂\n\nYour big day is just {days_left} days away on {date}! \nGet ready for the celebrations to begin! 🎉🎈", 
 
-        "🎉 Hey {name}, it's almost party time! 🎉\n\nJust {days_left} days until we celebrate YOU on {date}! 🎂✨ Let's make it magical! 🌟", 
+      "🎉 Hey {name}, it's almost party time! 🎉\n\nJust {days_left} days until we celebrate YOU on {date}! 🎂✨ Let's make it magical! 🌟", 
 
-        "🎊 Countdown Update: {name}! 🎊\n\n{days_left} days to go until your special day on {date}! \nTime to gear up for unforgettable moments and endless happiness! 🥳🎈", 
+      "🎊 Countdown Update: {name}! 🎊\n\n{days_left} days to go until your special day on {date}! \nTime to gear up for unforgettable moments and endless happiness! 🥳🎈", 
 
-        "✨ Hello, {name}! ✨\n\nAapke birthday mein sirf {days_left} din bache hain! 🗓️ Mark the date: {date}! \nBahut saari surprises aapka intezaar kar rahe hain! 🎂🎉", 
+      "✨ Hello, {name}! ✨\n\nAapke birthday mein sirf {days_left} din bache hain! 🗓️ Mark the date: {date}! \nBahut saari surprises aapka intezaar kar rahe hain! 🎂🎉", 
 
-        "🌟 Special Alert, {name}! 🌟\n\nJust {days_left} days left for your big day on {date}! 🎊 Let’s make it a day full of surprises, smiles, and cake! 🎂🎈", 
+      "🌟 Special Alert, {name}! 🌟\n\nJust {days_left} days left for your big day on {date}! 🎊 Let’s make it a day full of surprises, smiles, and cake! 🎂🎈", 
 
-        "🎂 Birthday Countdown: {name}! 🎂\n\nYour special day is only {days_left} days away! 🗓️ Don't forget, {date} is all about YOU! Let's make it epic! 🎉✨", 
+      "🎂 Birthday Countdown: {name}! 🎂\n\nYour special day is only {days_left} days away! 🗓️ Don't forget, {date} is all about YOU! Let's make it epic! 🎉✨", 
 
-        "🎉 {name}, time to get excited! 🎉\n\nYour birthday is in {days_left} days on {date}! 🎂 It’s going to be a day to remember with lots of joy and love! 💖🎈", 
+      "🎉 {name}, time to get excited! 🎉\n\nYour birthday is in {days_left} days on {date}! 🎂 It’s going to be a day to remember with lots of joy and love! 💖🎈", 
 
-        "🎂 Ready to celebrate, {name}? 🎂\n\nOnly {days_left} days left until your special day on {date}! \nLet’s get the party vibes rolling! 🥳🎉", 
+      "🎂 Ready to celebrate, {name}? 🎂\n\nOnly {days_left} days left until your special day on {date}! \nLet’s get the party vibes rolling! 🥳🎉", 
 
-        "🎊 Birthday vibes are here, {name}! 🎊\n\nJust {days_left} days left until we celebrate YOU on {date}! \nGet ready for cake, fun, and memories that will last forever! 🎂🎈", 
+      "🎊 Birthday vibes are here, {name}! 🎊\n\nJust {days_left} days left until we celebrate YOU on {date}! \nGet ready for cake, fun, and memories that will last forever! 🎂🎈", 
 
-        "✨ {name}, your moment is coming! ✨\n\nOnly {days_left} days to go until your special day on {date}! \nLet’s prepare for an amazing celebration! 🎊🎉", 
+      "✨ {name}, your moment is coming! ✨\n\nOnly {days_left} days to go until your special day on {date}! \nLet’s prepare for an amazing celebration! 🎊🎉", 
 
-        "🎈 Birthday Countdown, {name}! 🎈\n\nSirf {days_left} din bache hain till your big day on {date}! 🗓️ Let's make it a day full of happiness and cake! 🎂🎉", 
+      "🎈 Birthday Countdown, {name}! 🎈\n\nSirf {days_left} din bache hain till your big day on {date}! 🗓️ Let's make it a day full of happiness and cake! 🎂🎉", 
 
-        "🎉 Almost your day, {name}! 🎉\n\nYour birthday on {date} is just {days_left} days away! \nLet’s celebrate YOU with all the love and happiness! 🎂🎊", 
+      "🎉 Almost your day, {name}! 🎉\n\nYour birthday on {date} is just {days_left} days away! \nLet’s celebrate YOU with all the love and happiness! 🎂🎊", 
 
-        "🎊 Let the countdown begin, {name}! 🎊\n\nYour big day is coming soon — only {days_left} days to go on {date}! 🎂 \nIt’s time to plan an amazing celebration! 🎈✨", 
+      "🎊 Let the countdown begin, {name}! 🎊\n\nYour big day is coming soon — only {days_left} days to go on {date}! 🎂 \nIt’s time to plan an amazing celebration! 🎈✨", 
 
-        "🎂 The clock is ticking, {name}! 🎂\n\nYour special day on {date} is just {days_left} days away! 🎉🎊 \nStart prepping for laughter, joy, and lots of cake! 🎂✨", 
+      "🎂 The clock is ticking, {name}! 🎂\n\nYour special day on {date} is just {days_left} days away! 🎉🎊 \nStart prepping for laughter, joy, and lots of cake! 🎂✨", 
 
-        "🌟 Special Reminder: {name} 🌟\n\nJust {days_left} days until your birthday on {date}! 🎉✨ \nLet’s make it an extraordinary day with all your loved ones! 🎂🎈", 
+      "🌟 Special Reminder: {name} 🌟\n\nJust {days_left} days until your birthday on {date}! 🎉✨ \nLet’s make it an extraordinary day with all your loved ones! 🎂🎈", 
 
-        "🎊 Birthday Excitement Begins, {name}! 🎊\n\nYour big day is only {days_left} days away on {date}! 🎂🌟 \nReady for a celebration full of smiles, surprises, and love? 🎈✨", 
+      "🎊 Birthday Excitement Begins, {name}! 🎊\n\nYour big day is only {days_left} days away on {date}! 🎂🌟 \nReady for a celebration full of smiles, surprises, and love? 🎈✨", 
 
-        "🎉 Woohoo, {name}! 🎉\n\nSirf {days_left} din reh gaye hain until {date} — your special day! 🎂✨ Let’s prepare for an epic birthday celebration! 🎈🎊", 
+      "🎉 Woohoo, {name}! 🎉\n\nSirf {days_left} din reh gaye hain until {date} — your special day! 🎂✨ Let’s prepare for an epic birthday celebration! 🎈🎊", 
 
-        "🎂 Countdown Reminder, {name}! 🎂\n\nYour special day is coming up soon! Only {days_left} days left until {date}! 🎉💖\nLet the birthday vibes take over! 🎊✨", 
+      "🎂 Countdown Reminder, {name}! 🎂\n\nYour special day is coming up soon! Only {days_left} days left until {date}! 🎉💖\nLet the birthday vibes take over! 🎊✨", 
 
-        "🎈 Birthday vibes incoming, {name}! 🎈\n\n{days_left} din baaki hain for your grand celebration on {date}! 🗓️ Get ready for love, laughter, and cake galore! 🎉🎂"
-    ],
-    "special_days": [
-      {
-        "name": "New Year's Day",
-        "date": "2025-01-01",
-        "messages": [
-          "🎉 Happy New Year, {name}! 🎆\nWishing you a year full of happiness, prosperity, and success. 🌟 May all your dreams come true in 2025! ✨",
-          "🎊 Happy New Year, {name}! 🎇\nMay the coming year bring you love ❤️, laughter 😊, and countless blessings 🙏. Let's make it the best one yet! 💫"
-        ]
-      }
+      "🎈 Birthday vibes incoming, {name}! 🎈\n\n{days_left} din baaki hain for your grand celebration on {date}! 🗓️ Get ready for love, laughter, and cake galore! 🎉🎂"
+  ],
+  
+  "special_days": [
+    {
+      "name": "New Year's Day",
+      "date": "2025-01-01",
+      "messages": [
+        "🎉 Happy New Year, {name}! 🎆\nWishing you a year full of happiness, prosperity, and success. 🌟 May all your dreams come true in 2025! ✨",
+        "🎊 Happy New Year, {name}! 🎇\nMay the coming year bring you love ❤️, laughter 😊, and countless blessings 🙏. Let's make it the best one yet! 💫"
+      ]
+    },
+    {
+      "name": "Republic Day (India)",
+      "date": "2025-01-26",
+      "messages": [
+        "🇮🇳 Happy Republic Day, {name}! 🎉\nLet's honor the Constitution and the heroes who built our nation. Jai Hind! 🙌",
+        "🎆 Happy Republic Day, {name}! ✨\nFeel proud to be an Indian and celebrate the spirit of our great nation. 🇮🇳"
+      ]
+    },
+    {
+      "name": "Valentine's Day",
+      "date": "2025-02-14",
+      "messages": [
+        "🌹 Happy Valentine's Day, {name}! 💖\nMay your day be filled with love and warmth. ❤️ Spread the love today and always! 💕",
+        "💌 Happy Valentine's Day, {name}! 🌸\nWishing you a day as sweet as you are. 💘 Enjoy every special moment! 🌟"
+      ]
+    },
+    {
+      "name": "Maha Shivaratri",
+      "date": "2025-02-28",
+      "messages": [
+        "🔱 Happy Maha Shivaratri, {name}! 🙏\nMay Lord Shiva's blessings be with you always. 🕉️ Har Har Mahadev! 🌟",
+        "🌙 Happy Maha Shivaratri, {name}! ✨\nWishing you strength, positivity, and success on this auspicious day. 🙌"
+      ]
+    },
+    {
+      "name": "Holi",
+      "date": "2025-03-17",
+      "messages": [
+        "💖 Happy Holi, {name}! 🎨\nCelebrate the festival of colors with joy, laughter, and togetherness. 🌸 Let's paint 2025 with happiness! 🌟",
+        "🎉 Happy Holi, {name}! 🌼\nWishing you a colorful and joyous celebration filled with love and warmth. 🌺"
+      ]
+    },
+    {
+      "name": "Ram Navami",
+      "date": "2025-04-10",
+      "messages": [
+        "🏹 Happy Ram Navami, {name}! 🙏\nMay Lord Rama bless you with strength, wisdom, and happiness. 🌟 Celebrate the birth of Maryada Purushottam! 🎉",
+        "🎇 Happy Ram Navami, {name}! 🌟\nWishing you a day filled with devotion, positivity, and divine blessings. 🌺 Jai Shri Ram! 🚩"
+      ]
+    },
+    {
+      "name": "Raksha Bandhan",
+      "date": "2025-08-09",
+      "messages": [
+        "🪢 Happy Raksha Bandhan, {name}! 💖\nCelebrate the bond of love and protection with your siblings. 🌟",
+        "🎉 Happy Raksha Bandhan, {name}! 🙌\nWishing you and your siblings a lifetime of happiness and togetherness. 💕"
+      ]
+    },
+    {
+      "name": "Independence Day (India)",
+      "date": "2025-08-15",
+      "messages": [
+        "🇮🇳 Happy Independence Day, {name}! 🎉\nLet's celebrate the spirit of freedom and remember the sacrifices of our heroes. Jai Hind! 🙌",
+        "🎆 Happy Independence Day, {name}! ✨\nProud to be an Indian! Let's work together to make our country shine even brighter. 🌟"
+      ]
+    },
+    {
+      "name": "Ganesh Chaturthi",
+      "date": "2025-09-01",
+      "messages": [
+        "🌺 Happy Ganesh Chaturthi, {name}! 🐘\nMay Lord Ganesha bring happiness, success, and wisdom to your life. 🙏",
+        "🎉 Ganpati Bappa Morya, {name}! 🌟\nCelebrate the arrival of Lord Ganesha with joy and devotion. 🕉️"
+      ]
+    },
+    {
+      "name": "Dussehra",
+      "date": "2025-10-21",
+      "messages": [
+        "🔥 Happy Dussehra, {name}! 🌟\nCelebrate the victory of good over evil and fill your life with positivity. 🙏",
+        "🎉 Happy Vijayadashami, {name}! 🌺\nMay this day bring success and prosperity to you and your family."
+      ]
+    },
+    {
+      "name": "Diwali",
+      "date": "2025-10-20",
+      "messages": [
+        "🪔 Happy Diwali, {name}! 🎆\nMay your life be filled with light, love, and prosperity. 🌟 Enjoy the festival of lights! 🌼",
+        "🎇 Happy Diwali, {name}! 🕯️\nWishing you a joyous and sparkling celebration with your loved ones. 🌸"
+      ]
+    },
+    {
+      "name": "Christmas",
+      "date": "2025-12-25",
+      "messages": [
+        "🎄 Merry Christmas, {name}! 🎅\nMay your holiday season be filled with joy, peace, and happiness. ❄️ Spread the festive cheer! ✨",
+        "🎁 Merry Christmas, {name}! 🌟\nWishing you love, laughter, and countless blessings during this special time of year. 🎉"
+      ]
+    },
+    {
+      "name": "New Year's Eve",
+      "date": "2025-12-31",
+      "messages": [
+        "🎆 Goodbye 2025, {name}! 🎉\nGet ready to welcome a new year with new dreams, hopes, and adventures. 🌟",
+        "✨ Happy New Year's Eve, {name}! 🥂\nLet's cherish the memories of this year and step into 2026 with a smile. 💖"
+      ]
+    },
+    {
+      "name": "Friendship Day",
+      "date": "2025-08-03",
+      "messages": [
+        "👫 Happy Friendship Day, {name}! 🎉\nCheers to the bond that makes life brighter and laughter louder. 🌟",
+        "🎊 Happy Friendship Day, {name}! 💖\nWishing you a day filled with fun, memories, and the joy of true friendship. 💖"
+      ]
+    },
+    {
+      "name": "Mother's Day",
+      "date": "2025-05-11",
+      "messages": [
+        "🌷 Happy Mother's Day, {name}! 🌸\nTo the world, you are a mother. To your family, you are the world. 💖",
+        "🎉 Happy Mother's Day, {name}! 🌺\nThank you for your love, sacrifices, and endless support. You are truly appreciated. 🌟"
+      ]
+    },
+    {
+      "name": "Father's Day",
+      "date": "2025-06-15",
+      "messages": [
+        "👔 Happy Father's Day, {name}! 🎉\nA father is someone you look up to no matter how tall you grow. Thank you for everything. 🌟",
+        "🎊 Happy Father's Day, {name}! 🌟\nYour guidance, wisdom, and love have shaped our lives in the best way. Cheers to you! 🎈"
+      ]
+    }
   ]
 }
